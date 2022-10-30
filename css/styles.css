@@ -8,6 +8,9 @@
   --primary-black-color: #000000;
   --translucent-black-color: rgba(255, 255, 255, 0.6);
   --primary-svg-color: #afb1b8;
+  --input-border: rgba(33, 33, 33, 0.2);
+  --shadow-button-primary: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  --button-form-color-hover: #188ce8;
 }
 .page {
   background-color: var(--primary-white-color);
@@ -20,18 +23,6 @@
 }
 .link {
   text-decoration: none;
-}
-.visually-hidden {
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  margin: -1px;
 }
 h1,
 h2,
@@ -200,7 +191,7 @@ img {
 .button-primary:hover,
 .button-primary:focus {
   background-color: var(--focus-color);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-button-primary);
   border-radius: 4px;
 }
 .preferecces-list {
@@ -502,7 +493,7 @@ img {
 .footer-container {
   display: flex;
   align-items: baseline;
-  gap: 70px;
+  justify-content: space-between;
 }
 .list-address {
   font-style: normal;
@@ -575,6 +566,64 @@ img {
   fill: var(--primary-white-color);
   background-color: var(--focus-color);
 }
+/* footer-form */
+.footer-form-header {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--primary-white-color);
+  margin-bottom: 20px;
+}
+.footer-form-mail {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+.footer-form-input {
+  width: 358px;
+  height: 50px;
+  padding: 15px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+  background-color: var(--primary-background-color);
+  color: var(--primary-white-color);
+}
+.footer-form-input::placeholder {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+  color: var(--translucent-black-color);
+}
+.footer-form-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 28px;
+  margin: 0 auto;
+  width: 200px;
+  height: 50px;
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  background-color: var(--focus-color);
+  cursor: pointer;
+  border: 0;
+  border-radius: 4px;
+  color: var(--primary-white-color);
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 2.25;
+  letter-spacing: 0.06em;
+}
+.icon-footer-form-button {
+  fill: var(--primary-white-color);
+}
+
 /* end footer */
 /* modal */
 .backdrop {
@@ -604,6 +653,7 @@ img {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+  padding: 40px;
 }
 .button-close-style {
   position: absolute;
@@ -623,4 +673,151 @@ img {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   cursor: pointer;
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.button-close:hover,
+.button-close:focus {
+  fill: var(--focus-color);
+}
+/* form-modal */
+.header-contact-form {
+  color: var(--title-text-color);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+  letter-spacing: 0.03em;
+  text-align: center;
+  margin-bottom: 12px;
+}
+.form-label {
+  display: block;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+  color: var(--primary-text-color);
+  margin-bottom: 4px;
+}
+.form-control {
+  position: relative;
+  margin-bottom: 10px;
+}
+.form-input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  padding-left: 42px;
+  outline: none;
+  fill: var(--title-text-color);
+
+  transition-property: border;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.form-input:focus {
+  border-color: var(--focus-color);
+}
+.form-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  fill: var(--title-text-color);
+
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.form-control:focus-within .form-icon {
+  fill: var(--focus-color);
+}
+.form-textarea {
+  width: 100%;
+  height: 120px;
+  padding: 12px 16px;
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  margin-bottom: 20px;
+  outline: none;
+  font-size: 12px;
+  resize: none;
+  transition-property: border;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.form-textarea::placeholder {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+  color: rgba(117, 117, 117, 0.5);
+}
+.form-textarea:focus {
+  border-color: var(--focus-color);
+}
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+.checkbox-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 30px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  color: var(--primary-text-color);
+  fill: var(--primary-white-color);
+}
+.checkbox-label-link {
+  color: var(--focus-color);
+  text-decoration: underline;
+}
+.checkbox-icon {
+  border: 2px solid var(--title-text-color);
+  border-radius: 2px;
+  transition-property: border, background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.checkbox-input:checked ~ .checkbox-icon {
+  background-color: var(--focus-color);
+  border: none;
+}
+.form-button {
+  display: block;
+  padding: 10px 52px;
+  margin: 0 auto;
+  color: var(--primary-white-color);
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+  letter-spacing: 0.06em;
+  background-color: var(--focus-color);
+  cursor: pointer;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: var(--shadow-button-primary);
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.form-button:hover,
+.form-button:focus {
+  background-color: var(--button-form-color-hover);
 }
