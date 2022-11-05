@@ -493,7 +493,9 @@ img {
 .footer-container {
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
+}
+.footer-contact {
+  margin-right: 70px;
 }
 .list-address {
   font-style: normal;
@@ -528,6 +530,10 @@ img {
 .contact-link-footer:focus {
   color: var(--focus-color);
 }
+.footer-social {
+  margin-right: 93px;
+  flex-grow: 1;
+}
 .footer-header {
   margin-bottom: 20px;
 
@@ -541,7 +547,6 @@ img {
 .footer-social-list {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 10px;
 }
 .footer-social-item {
@@ -623,7 +628,6 @@ img {
 .icon-footer-form-button {
   fill: var(--primary-white-color);
 }
-
 /* end footer */
 /* modal */
 .backdrop {
@@ -735,6 +739,7 @@ img {
   fill: var(--focus-color);
 }
 .form-textarea {
+  display: block;
   width: 100%;
   height: 120px;
   padding: 12px 16px;
